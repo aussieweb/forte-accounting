@@ -1,0 +1,1253 @@
+/**
+ * forte-accounting v3.0.0
+ * WordPress theme for Forte Accounting, by Chris Ferdinandi.
+ * http://github.com/cferdinandi/forte-accounting
+ * 
+ * Free to use under the MIT License.
+ * http://gomakethings.com/mit/
+ */
+
+/**
+ * @section Normalize.css
+ * Normalize.css base with custom code.
+ * Additional normalize styles incorporated throughout components.
+ * @link http://necolas.github.io/normalize.css/
+ */
+/**
+ * Mobile screen resizing
+ * @link http://dev.w3.org/csswg/css-device-adapt/
+ */
+@-webkit-viewport {
+  width: device-width;
+  zoom: 1.0;
+}
+@-moz-viewport {
+  width: device-width;
+  zoom: 1.0;
+}
+@-ms-viewport {
+  width: device-width;
+  zoom: 1.0;
+}
+@-o-viewport {
+  width: device-width;
+  zoom: 1.0;
+}
+@viewport {
+  width: device-width;
+  zoom: 1.0;
+}
+/**
+ * Add box sizing to everything
+ * @link http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/**
+ * 1. Set default font family to default.
+ * 2. Force scrollbar display to prevent jumping on pages.
+ * 3. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-family: "Noto Serif", Georgia, Times, serif;
+  /* 1 */
+  overflow-y: scroll;
+  /* 2 */
+  text-size-adjust: 100%;
+  /* 3 */
+}
+
+/**
+ * Remove default margin.
+ */
+body {
+  margin: 0;
+}
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+article,
+aside,
+cite,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Prevent img and video elements from spilling outside of the page on smaller screens.
+ */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+ * Prevent iframe, object, and embed elements from spilling outside of the page on smaller screens.
+ * height: auto causes iframes to smush, so it's omitted here.
+ */
+iframe,
+object,
+embed {
+  max-width: 100%;
+}
+
+/**
+ * Hide the template element in IE, Safari, and Firefox < 22.
+ */
+/**
+ * 1. Remove border when inside `a` element in IE 8/9/10.
+ * 2. Prevents IE from making scaled images look like crap
+ */
+img {
+  border: 0;
+  /* 1 */
+  -ms-interpolation-mode: bicubic;
+  /* 2 */
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/**
+ * Address inconsistent margin.
+ */
+figure {
+  margin: 0;
+}
+
+/**
+ * @section Grid
+ * Structure and layout
+ */
+/**
+ * Base grid styles: single column
+ */
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 40em;
+  width: 88%;
+}
+
+.container-large {
+  max-width: 60em;
+}
+
+.row {
+  margin-left: -1.4%;
+  margin-right: -1.4%;
+}
+
+.grid-fourth, .grid-third, .grid-half, .grid-two-thirds, .grid-three-fourths, .grid-full, .grid-dynamic {
+  float: left;
+  padding-left: 1.4%;
+  padding-right: 1.4%;
+  width: 100%;
+}
+
+/**
+ * Reverses order of grid for content choreography
+ */
+.grid-flip {
+  float: right;
+}
+
+/**
+ * Add columns to grid on bigger screens
+ */
+@media (min-width: 20em) {
+  .row-start-xsmall .grid-fourth {
+    width: 25%;
+  }
+
+  .row-start-xsmall .grid-third {
+    width: 33.33333%;
+  }
+
+  .row-start-xsmall .grid-half {
+    width: 50%;
+  }
+
+  .row-start-xsmall .grid-two-thirds {
+    width: 66.66667%;
+  }
+
+  .row-start-xsmall .grid-three-fourths {
+    width: 75%;
+  }
+
+  .row-start-xsmall .grid-full {
+    width: 100%;
+  }
+}
+@media (min-width: 30em) {
+  .row-start-small .grid-fourth {
+    width: 25%;
+  }
+
+  .row-start-small .grid-third {
+    width: 33.33333%;
+  }
+
+  .row-start-small .grid-half {
+    width: 50%;
+  }
+
+  .row-start-small .grid-two-thirds {
+    width: 66.66667%;
+  }
+
+  .row-start-small .grid-three-fourths {
+    width: 75%;
+  }
+
+  .row-start-small .grid-full {
+    width: 100%;
+  }
+}
+@media (min-width: 40em) {
+  .grid-fourth {
+    width: 25%;
+  }
+
+  .grid-third {
+    width: 33.33333%;
+  }
+
+  .grid-half {
+    width: 50%;
+  }
+
+  .grid-two-thirds {
+    width: 66.66667%;
+  }
+
+  .grid-three-fourths {
+    width: 75%;
+  }
+
+  .grid-full {
+    width: 100%;
+  }
+}
+/**
+ * Dynamic grid
+ */
+@media (min-width: 20em) {
+  .grid-dynamic {
+    width: 50%;
+  }
+}
+@media (min-width: 30em) {
+  .grid-dynamic {
+    width: 33.33333%;
+  }
+}
+@media (min-width: 40em) {
+  .grid-dynamic {
+    width: 25%;
+  }
+}
+/**
+ * @section Typography
+ * Sets font styles for entire site
+ */
+body {
+  background: #ffffff;
+  color: #272727;
+  font-family: "Noto Serif", Georgia, Times, serif;
+  font-size: 100%;
+  line-height: 1.5;
+}
+@media (min-width: 40em) {
+  body {
+    line-height: 1.5625;
+  }
+}
+
+p {
+  margin: 0 0 1.5625em;
+}
+
+/**
+ * Hyperlink styling
+ */
+a, .link-plain:hover, .link-block-styled {
+  background-color: transparent;
+  color: #0088cc;
+  text-decoration: none;
+  word-wrap: break-word;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active, .link-plain:active:hover, .link-block-styled:active,
+a:hover,
+.link-plain:hover,
+.link-block-styled:hover,
+.link-block:hover .link-block-styled {
+  outline: 0;
+}
+
+a:hover, .link-plain:hover, .link-block-styled:hover, .link-block:hover .link-block-styled,
+a:focus,
+.link-plain:focus:hover,
+.link-block-styled:focus,
+a:active,
+.link-plain:active:hover,
+.link-block-styled:active {
+  color: #005580;
+  text-decoration: underline;
+}
+
+a img, .link-plain:hover img, .link-block-styled img {
+  border: none;
+  background: none;
+}
+
+/**
+ * Creates plain links
+ */
+.link-plain {
+  color: #272727;
+}
+
+/**
+ * Creates block-level links
+ */
+a.link-block, .link-block.link-plain:hover, .link-block.link-block-styled {
+  color: #272727;
+  display: block;
+  text-decoration: none;
+}
+
+/**
+ * List styling
+ */
+ul,
+ol {
+  margin: 0 0 1.5625em 2em;
+  padding: 0;
+}
+
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+  margin-bottom: 0;
+}
+
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+dd {
+  margin-bottom: 1.5625em;
+}
+
+dt {
+  font-weight: bold;
+}
+
+/**
+ * Removes list styling.
+ * For semantic reasons, should only be used on unordered lists.
+ */
+.list-unstyled {
+  margin-left: 0;
+  list-style: none;
+}
+
+/**
+ * Display lists on a single line.
+ */
+.list-inline {
+  list-style: none;
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+  padding: 0;
+}
+
+.list-inline > li {
+  display: inline;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+/**
+ * Heading styling for h1 through h6 elements.
+ * Heading class lets you use one heading type for semantics, but style it as another heading type.
+ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  line-height: 1.2;
+  margin: 0 0 1em;
+  padding: 1em 0 0;
+  word-wrap: break-word;
+}
+
+h1,
+.h1 {
+  font-size: 1.5em;
+  padding-top: .5em;
+}
+@media (min-width: 40em) {
+  h1,
+  .h1 {
+    font-size: 1.75em;
+  }
+}
+
+h2,
+.h2 {
+  font-size: 1.3125em;
+}
+
+h3,
+.h3 {
+  font-size: 1.1875em;
+}
+
+h4, h5, h6,
+.h4, .h5, .h6 {
+  font-size: 1em;
+}
+
+h4,
+.h4 {
+  text-transform: uppercase;
+}
+
+/**
+ * Lines, Quotes and Emphasis
+ */
+hr {
+  margin: 2em auto;
+  border: 0;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 0 solid #ffffff;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+i,
+em {
+  font-style: italic;
+}
+
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/**
+ * Blockquotes
+ */
+blockquote {
+  font-size: 1.1875em;
+  font-style: italic;
+  margin: 0 0 1.5625em;
+  padding-left: 0.84211em;
+  padding-right: 0.84211em;
+}
+blockquote cite {
+  color: #808080;
+  font-size: 0.84211em;
+  padding-top: 1em;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+}
+
+/**
+ * @section Buttons
+ * Styling for CSS buttons.
+ */
+.btn {
+  background-color: #0088cc;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#0088cc), to(#005580));
+  background-image: -webkit-linear-gradient(top, #0088cc 0%, #005580 100%);
+  background-image: linear-gradient(to bottom, #0088cc 0%, #005580 100%);
+  border: 1px solid #005580;
+  border-radius: 0.25em;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 0.125em rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 0.125em rgba(0, 0, 0, 0.05);
+  display: inline-block;
+  font-size: 0.9375em;
+  font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-right: 0.3125em;
+  margin-bottom: 0.3125em;
+  padding: 0.5em 0.6875em;
+}
+
+.btn,
+.btn:hover,
+a .btn:hover,
+.link-plain:hover .btn:hover,
+.link-block-styled .btn:hover,
+.btn:focus,
+a .btn:focus,
+.link-plain:hover .btn:focus,
+.link-block-styled .btn:focus,
+.btn:active,
+a .btn:active,
+.link-plain:hover .btn:active,
+.link-block-styled .btn:active,
+.btn.active {
+  color: #ffffff;
+}
+
+.btn:hover,
+a .btn:hover,
+.link-plain:hover .btn:hover,
+.link-block-styled .btn:hover,
+.btn:focus,
+a .btn:focus,
+.link-plain:hover .btn:focus,
+.link-block-styled .btn:focus,
+.btn:active,
+a .btn:active,
+.link-plain:hover .btn:active,
+.link-block-styled .btn:active,
+.btn.active {
+  background-color: #005580;
+  background-image: none;
+  border-color: #003a57;
+  text-decoration: none;
+}
+
+.btn:active,
+.btn.active {
+  -webkit-box-shadow: inset 0 0.15625em 0.25em rgba(0, 0, 0, 0.15), 0 1px 0.15625em rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 0.15625em 0.25em rgba(0, 0, 0, 0.15), 0 1px 0.15625em rgba(0, 0, 0, 0.05);
+  outline: 0;
+}
+
+.btn-large {
+  border-radius: 0.5em;
+  font-size: 1em;
+  line-height: normal;
+  padding: 0.9375em 2em;
+}
+
+.btn,
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  /**
+   * @workaround Override default button styling
+   * @affected Webkit/Firefox
+   */
+  -webkit-appearance: none;
+}
+
+.btn:last-child,
+input.btn {
+  margin-right: 0;
+}
+
+/**
+ * @section SVGs
+ * SVG icon sprite styling.
+ * @link http://css-tricks.com/svg-sprites-use-better-icon-fonts/
+ * @link http://css-tricks.com/svg-use-external-source/
+ */
+/**
+ * Hide icons by default to prevent blank spaces in unsupported browsers
+ */
+.icon {
+  display: inline-block;
+  fill: currentColor;
+  height: 0;
+  width: 0;
+}
+
+/**
+ * Display icons when browser supports SVG.
+ * Inherit height, width, and color.
+ */
+.svg .icon {
+  height: 1em;
+  width: 1em;
+}
+
+.svg .icon-large {
+  height: 2em;
+  width: 2em;
+}
+
+.svg .icon-xlarge {
+  height: 3em;
+  width: 3em;
+}
+
+/**
+ * Colors
+ */
+.icon-linkedin, .icon-facebook, .icon-google {
+  background-color: #ffffff;
+  border-radius: 0.125em;
+}
+.icon-large.icon-linkedin, .icon-large.icon-facebook, .icon-large.icon-google {
+  border-radius: 0.25em;
+}
+.icon-xlarge.icon-linkedin, .icon-xlarge.icon-facebook, .icon-xlarge.icon-google {
+  border-radius: 0.5em;
+}
+
+.icon-linkedin {
+  fill: #0073b2;
+}
+
+.icon-facebook {
+  fill: #3b5997;
+}
+
+.icon-google {
+  fill: #d64937;
+}
+
+/**
+ * Landing page icons
+ */
+.svg .icon-landing {
+  border: 0.25em solid #808080;
+  border-radius: 50%;
+  height: 6em;
+  padding: 1em;
+  text-align: center;
+  width: 6em;
+}
+.svg .icon-landing .icon {
+  fill: #808080;
+}
+
+/**
+ * Hide fallback text if browser supports SVG
+ */
+/**
+ * Hide tab navigation by default
+ */
+.tabs {
+  display: none;
+  visibility: hidden;
+}
+
+/**
+ * Display tab navigation if javascript enabled.
+ * This requires on the included js-accessibility.js-tabby script.
+ */
+.js-tabby .tabs {
+  display: block;
+  visibility: visible;
+}
+
+/**
+ * Force browser to show a pointer on tab navigation.
+ */
+.tabs a, .tabs .link-plain:hover, .tabs .link-block-styled,
+.tabs button {
+  cursor: pointer;
+}
+
+/**
+ * Active link styling
+ */
+.tabs a.active, .tabs .active.link-plain:hover, .tabs .active.link-block-styled {
+  color: #272727;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/**
+ * Hide tab content if javascript is enabled.
+ */
+.js-tabby .tabs-pane {
+  display: none;
+  visibility: hidden;
+}
+
+/**
+ * Show tab content when JS file downloads.
+ */
+.tabs-pane.active {
+  display: block;
+  visibility: visible;
+}
+
+/**
+ * Clearfix
+ */
+/**
+ * Center all navigation elements
+ */
+.nav-wrap-navbar {
+  text-align: center;
+  text-shadow: none;
+}
+
+/**
+ * For text-based logo, override default link styling.
+ */
+.logo-navbar {
+  color: #272727;
+  display: inline-block;
+  font-size: 1.2em;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+  text-decoration: none;
+}
+.logo-navbar:hover {
+  color: #272727;
+  text-decoration: none;
+}
+
+/**
+ * Remove default list styling for navigation list
+ */
+.nav-navbar {
+  font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  list-style: none;
+  margin: 0 -0.5em;
+  margin-bottom: 0.5em;
+  padding: 0;
+}
+.nav-navbar .icon {
+  height: 1.2em;
+  width: 1.2em;
+}
+
+/**
+ * Display navigation items as inline-block elements.
+ * Add slight margin between each navigation item.
+ */
+.nav-navbar > li {
+  display: inline-block;
+  float: none;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+.nav-navbar > li:nth-last-child(-n+3) {
+  vertical-align: middle;
+}
+
+/**
+* Active link styling
+*/
+.nav-navbar > li.current-menu-item > a, .nav-navbar > li.current-menu-item > .link-plain:hover, .nav-navbar > li.current-menu-item > .link-block-styled,
+.nav-navbar > li.current_page_parent > a,
+.nav-navbar > li.current_page_parent > .link-plain:hover,
+.nav-navbar > li.current_page_parent > .link-block-styled,
+.nav-navbar > li.current-page-ancestor > a,
+.nav-navbar > li.current-page-ancestor > .link-plain:hover,
+.nav-navbar > li.current-page-ancestor > .link-block-styled {
+  color: #808080;
+}
+
+/**
+ * Hide the navigation toggle menu button by default.
+ * Only needed for expand-and-collapse option.
+ * */
+.nav-toggle-navbar {
+  display: none;
+  font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  visibility: hidden;
+}
+
+/**
+ * Expand-and-Collapse styling for smaller screens.
+ * .js-astro prefix ensure content is only hidden when JavaScript is supported.
+ */
+@media (max-width: 60em) {
+  /**
+   * Align text to the left when javascript is supported
+   */
+  .js-astro .nav-wrap-navbar.nav-collapse {
+    text-align: left;
+  }
+
+  /**
+   * Float logo to the left and remove margin-bottom
+   */
+  .js-astro .nav-collapse .logo-navbar {
+    float: left;
+  }
+
+  /**
+   * Display navigation toggle button if javascript is supported
+   */
+  .js-astro .nav-collapse .nav-toggle-navbar {
+    display: block;
+    visibility: visible;
+    float: right;
+  }
+
+  /**
+   * Hide navigation items if javascript is supported.
+   * Show with `.active` class.
+   */
+  .js-astro .nav-collapse .nav-menu-navbar {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    clear: left;
+    display: none;
+    width: 100%;
+  }
+  .js-astro .nav-collapse .nav-menu-navbar.active {
+    display: block;
+  }
+
+  .js-astro .nav-collapse .nav-navbar {
+    text-align: left;
+  }
+
+  /**
+  * Active link styling
+  */
+  .js-astro .nav-navbar > li.current-menu-item > a, .js-astro .nav-navbar > li.current-menu-item > .link-plain:hover, .js-astro .nav-navbar > li.current-menu-item > .link-block-styled,
+  .js-astro .nav-navbar > li.current_page_parent > a,
+  .js-astro .nav-navbar > li.current_page_parent > .link-plain:hover,
+  .js-astro .nav-navbar > li.current_page_parent > .link-block-styled,
+  .js-astro .nav-navbar > li.current-page-ancestor > a,
+  .js-astro .nav-navbar > li.current-page-ancestor > .link-plain:hover,
+  .js-astro .nav-navbar > li.current-page-ancestor > .link-block-styled {
+    background-color: #0088cc;
+    color: #ffffff;
+  }
+
+  /**
+   * Display navigation items as full-width, stacked blocks when javascript supported
+   */
+  .js-astro .nav-collapse .nav-menu-navbar li {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-top: 1px solid #0088cc;
+    display: block;
+    width: 100%;
+  }
+  .js-astro .nav-collapse .nav-menu-navbar li:nth-last-child(4) {
+    border-bottom: 1px solid #0088cc;
+  }
+  .js-astro .nav-collapse .nav-menu-navbar li:nth-last-child(-n+3) {
+    border-top: 0;
+    display: inline-block;
+    margin-left: 0;
+    margin-right: 0;
+    width: auto;
+  }
+  .js-astro .nav-collapse .nav-menu-navbar li:nth-last-child(3) {
+    margin-left: 0.5em;
+  }
+
+  .js-astro .nav-collapse .nav-menu-navbar a, .js-astro .nav-collapse .nav-menu-navbar .link-plain:hover, .js-astro .nav-collapse .nav-menu-navbar .link-block-styled {
+    display: block;
+    padding: 0.25em 0.5em;
+  }
+  .js-astro .nav-collapse .nav-menu-navbar a:hover, .js-astro .nav-collapse .nav-menu-navbar .link-plain:hover, .js-astro .nav-collapse .nav-menu-navbar .link-block-styled:hover, .js-astro .nav-collapse .nav-menu-navbar .link-block:hover .link-block-styled, .link-block:hover .js-astro .nav-collapse .nav-menu-navbar .link-block-styled {
+    background-color: #0088cc;
+    color: #ffffff;
+    text-decoration: none;
+  }
+}
+/**
+ * Styling for bigger screens.
+ */
+@media (min-width: 60em) {
+  /**
+   * Align text to the left
+   */
+  .nav-wrap-navbar {
+    text-align: left;
+  }
+
+  /**
+   * Float logo to the left
+   */
+  .logo-navbar {
+    float: left;
+  }
+
+  /**
+   * Align navigation elements to the right
+   */
+  .nav-navbar {
+    text-align: right;
+    margin-bottom: 0;
+  }
+}
+/**
+ * Clearfix
+ */
+.nav-wrap-navbar:before,
+.nav-wrap-navbar:after {
+  display: table;
+  content: "";
+}
+
+.nav-wrap-navbar:after {
+  clear: both;
+}
+
+/**
+ * @section Backgrounds
+ * Background styling.
+ */
+.bg-muted {
+  background-color: #e5e5e5;
+}
+
+.bg-primary {
+  background-color: #0088cc;
+  color: #ffffff;
+}
+
+.bg-secondary {
+  background-color: #dfeff7;
+}
+
+/**
+ * @section Overrides
+ * Nudge and tweak alignment, spacing, and visibility.
+ */
+/**
+ * Borders
+ */
+.border-top {
+  border-top: 1px solid #808080;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #808080;
+}
+
+/**
+ * Text sizes
+ */
+.text-small {
+  font-size: 0.9375em;
+}
+
+.text-medium {
+  font-size: 1em;
+  line-height: 1.4;
+}
+@media (min-width: 40em) {
+  .text-medium {
+    font-size: 1.1875em;
+  }
+}
+
+.text-large {
+  font-size: 1.1875em;
+  line-height: 1.4;
+}
+@media (min-width: 40em) {
+  .text-large {
+    font-size: 1.3125em;
+  }
+}
+
+.text-hero {
+  font-size: 1.5em;
+  line-height: 1.2;
+}
+@media (min-width: 40em) {
+  .text-hero {
+    font-size: 2em;
+  }
+}
+
+/**
+ * Text colors
+ */
+.text-muted {
+  color: #808080;
+}
+
+/**
+ * Text Typefaces
+ */
+.font-secondary {
+  font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+/**
+ * Text alignment
+ */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+/**
+ * Floats
+ */
+.float-left {
+  float: left;
+}
+
+.float-center, .svg .icon-landing {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.float-right {
+  float: right;
+}
+
+/**
+ * Margins
+ */
+.no-margin {
+  margin: 0;
+}
+
+.no-margin-top {
+  margin-top: 0;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
+.margin-top {
+  margin-top: 1.5625em;
+}
+
+.margin-bottom {
+  margin-bottom: 1.5625em;
+}
+
+.margin-bottom-small {
+  margin-bottom: 0.5em;
+}
+
+.margin-bottom-large {
+  margin-bottom: 2em;
+}
+
+/**
+ * Padding
+ */
+.no-padding {
+  padding: 0;
+}
+
+.no-padding-top {
+  padding-top: 0;
+}
+
+.no-padding-bottom {
+  padding-bottom: 0;
+}
+
+.padding-top {
+  padding-top: 1.5625em;
+}
+
+.padding-top-small {
+  padding-top: 0.5em;
+}
+
+.padding-top-large {
+  padding-top: 2em;
+}
+
+.padding-bottom {
+  padding-bottom: 1.5625em;
+}
+
+.padding-bottom-small {
+  padding-bottom: 0.5em;
+}
+
+.padding-bottom-large {
+  padding-bottom: 2em;
+}
+
+/**
+ * Visibility
+ */
+/**
+ * Visually hide an element, but leave it available for screen readers
+ * @link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css
+ * @link http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+.screen-reader, .svg .icon-fallback-text {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/**
+ * Extends the .screen-reader class to allow the element to be focusable when navigated to via the keyboard
+ * @link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css
+ * @link https://www.drupal.org/node/897638
+ */
+.screen-reader-focusable:active,
+.screen-reader-focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/**
+ * @workaround
+ * @affected IE 8/9/10
+ * @link http://juicystudio.com/article/screen-readers-display-none.php
+ */
+[hidden], template {
+  display: none;
+  visibility: hidden;
+}
+
+/**
+ * Contain floats
+ * The space content is one way to avoid an Opera bug when the `contenteditable` attribute is included anywhere else in the document.
+ * @link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css
+ */
+.clearfix:before, .container:before,
+.row:before, .tabs:before,
+.clearfix:after,
+.container:after,
+.row:after,
+.tabs:after {
+  display: table;
+  content: " ";
+}
+
+.clearfix:after, .container:after,
+.row:after, .tabs:after {
+  clear: both;
+}

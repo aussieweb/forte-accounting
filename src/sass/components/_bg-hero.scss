@@ -1,0 +1,23 @@
+/**
+ * @section Background Hero
+ * Background hero styling.
+ */
+
+.bg-hero {
+	background-image: url("../img/hero-medium.jpg");
+	background-position: bottom center;
+	background-size: cover;
+	text-shadow: calc-em(1px) calc-em(1px) calc-em(1px) $color-black;
+
+   @media (min-width: $bp-large),
+	      (min-device-pixel-ratio: 2),
+	      (min-resolution: 192dpi) {
+		background-image: url("../img/hero-large.jpg");
+	}
+
+   @media (min-width: $bp-xlarge),
+	      (min-width: $bp-large) and (min-device-pixel-ratio: 2),
+	      (min-width: $bp-large) and (min-resolution: 192dpi) {
+		background-image: url("../img/hero-xlarge.jpg");
+	}
+}

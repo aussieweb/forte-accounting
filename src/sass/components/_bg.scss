@@ -1,0 +1,18 @@
+/**
+ * @section Backgrounds
+ * Background styling.
+ */
+
+
+.bg-muted {
+	background-color: $color-gray-light;
+}
+
+.bg-primary {
+	background-color: $color-primary;
+	color: $color-white;
+}
+
+.bg-secondary {
+	background-color: $color-secondary;
+}

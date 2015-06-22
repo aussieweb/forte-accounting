@@ -1,0 +1,90 @@
+/**
+ * @section SVGs
+ * SVG icon sprite styling.
+ * @link http://css-tricks.com/svg-sprites-use-better-icon-fonts/
+ * @link http://css-tricks.com/svg-use-external-source/
+ */
+
+/**
+ * Hide icons by default to prevent blank spaces in unsupported browsers
+ */
+.icon {
+	display: inline-block;
+	fill: currentColor;
+	height: 0;
+	width: 0;
+}
+
+/**
+ * Display icons when browser supports SVG.
+ * Inherit height, width, and color.
+ */
+.svg .icon {
+	height: 1em;
+	width: 1em;
+}
+
+.svg .icon-large {
+	height: 2em;
+	width: 2em;
+}
+
+.svg .icon-xlarge {
+	height: 3em;
+	width: 3em;
+}
+
+/**
+ * Colors
+ */
+
+%icon-bg-white {
+	background-color: $color-white;
+	border-radius: calc-em(2px);
+
+	&.icon-large {
+		border-radius: calc-em(4px);
+	}
+
+	&.icon-xlarge {
+		border-radius: calc-em(8px);
+	}
+}
+
+.icon-linkedin { @extend %icon-bg-white; fill: $color-linkedin; }
+.icon-facebook { @extend %icon-bg-white; fill: $color-facebook; }
+.icon-google { @extend %icon-bg-white; fill: $color-google; }
+
+
+/**
+ * Landing page icons
+ */
+.svg .icon-landing {
+	@extend .float-center;
+	border: calc-em(4px) solid $color-gray-dark;
+	border-radius: 50%;
+	height: 6em;
+	padding: 1em;
+	text-align: center;
+	width: 6em;
+
+	.icon {
+		fill: $color-gray-dark;
+	}
+}
+
+// /**
+//  * Linked icons
+//  */
+
+// a .icon:hover {
+// 	fill: darken( $color-primary, 15% );
+// }
+
+
+/**
+ * Hide fallback text if browser supports SVG
+ */
+.svg .icon-fallback-text {
+	@extend .screen-reader;
+}

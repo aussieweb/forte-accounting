@@ -1,0 +1,218 @@
+/**
+ * Center all navigation elements
+ */
+.nav-wrap-navbar {
+	text-align: center;
+	text-shadow: none;
+}
+
+/**
+ * For text-based logo, override default link styling.
+ */
+.logo-navbar {
+	color: $color-black;
+	// color: $color-white;
+	display: inline-block;
+	font-size: 1.2em;
+	font-weight: bold;
+	line-height: 1.2;
+	margin-bottom: calc-em(8px);
+	text-decoration: none;
+
+	&:hover {
+		color: $color-black;
+		text-decoration: none;
+	}
+}
+
+/**
+ * Remove default list styling for navigation list
+ */
+.nav-navbar {
+	font-family: $font-secondary;
+	list-style: none;
+	margin: 0 calc-em(-8px);
+	margin-bottom: calc-em(8px);
+	padding: 0;
+
+	.icon {
+		height: 1.2em;
+		width: 1.2em;
+	}
+}
+
+/**
+ * Display navigation items as inline-block elements.
+ * Add slight margin between each navigation item.
+ */
+.nav-navbar > li {
+	display: inline-block;
+	float: none;
+	margin-left: calc-em(8px);
+	margin-right: calc-em(8px);
+
+	&:nth-last-child(-n+3) {
+		vertical-align: middle;
+	}
+}
+
+/**
+* Active link styling
+*/
+.nav-navbar > li.current-menu-item > a,
+.nav-navbar > li.current_page_parent > a,
+.nav-navbar > li.current-page-ancestor > a {
+	color: $color-gray-dark;
+}
+
+/**
+ * Hide the navigation toggle menu button by default.
+ * Only needed for expand-and-collapse option.
+ * */
+.nav-toggle-navbar {
+	display: none;
+	font-family: $font-secondary;
+	visibility: hidden;
+}
+
+
+/**
+ * Expand-and-Collapse styling for smaller screens.
+ * .js-astro prefix ensure content is only hidden when JavaScript is supported.
+ */
+@media (max-width: $bp-large) {
+	/**
+	 * Align text to the left when javascript is supported
+	 */
+	.js-astro .nav-wrap-navbar.nav-collapse  {
+		text-align: left;
+	}
+
+	/**
+	 * Float logo to the left and remove margin-bottom
+	 */
+	.js-astro .nav-collapse .logo-navbar {
+		float: left;
+	}
+
+	/**
+	 * Display navigation toggle button if javascript is supported
+	 */
+	.js-astro .nav-collapse .nav-toggle-navbar {
+		display: block;
+		visibility: visible;
+		float: right;
+	}
+
+	/**
+	 * Hide navigation items if javascript is supported.
+	 * Show with `.active` class.
+	 */
+	.js-astro .nav-collapse .nav-menu-navbar {
+		box-sizing: border-box;
+		clear: left;
+		display: none;
+		width: 100%;
+
+		&.active {
+			display: block;
+		}
+	}
+
+	.js-astro .nav-collapse .nav-navbar {
+		text-align: left;
+	}
+
+	/**
+	* Active link styling
+	*/
+	.js-astro .nav-navbar > li.current-menu-item > a,
+	.js-astro .nav-navbar > li.current_page_parent > a,
+	.js-astro .nav-navbar > li.current-page-ancestor > a {
+		background-color: $color-primary;
+		color: $color-white;
+	}
+
+	/**
+	 * Display navigation items as full-width, stacked blocks when javascript supported
+	 */
+	.js-astro .nav-collapse .nav-menu-navbar li {
+		box-sizing: border-box;
+		border-top: calc-em(1px) solid $color-primary;
+		display: block;
+		width: 100%;
+
+		&:nth-last-child(4) {
+			border-bottom: calc-em(1px) solid $color-primary;
+		}
+
+		&:nth-last-child(-n+3) {
+			border-top: 0;
+			display: inline-block;
+			margin-left: 0;
+			margin-right: 0;
+			width: auto;
+		}
+
+		&:nth-last-child(3) {
+			margin-left: calc-em(8px);
+		}
+	}
+
+	.js-astro .nav-collapse .nav-menu-navbar a {
+		display: block;
+		// padding-top: calc-em(4px);
+		// padding-bottom: calc-em(4px);
+		padding: calc-em(4px) calc-em(8px);
+
+		&:hover {
+			background-color: $color-primary;
+			color: $color-white;
+			text-decoration: none;
+		}
+	}
+
+}
+
+
+/**
+ * Styling for bigger screens.
+ */
+@media (min-width: $bp-large) {
+
+	/**
+	 * Align text to the left
+	 */
+	.nav-wrap-navbar {
+		text-align: left;
+	}
+
+	/**
+	 * Float logo to the left
+	 */
+	.logo-navbar {
+		float: left;
+	}
+
+	/**
+	 * Align navigation elements to the right
+	 */
+	.nav-navbar {
+		text-align: right;
+		margin-bottom: 0;
+	}
+}
+
+
+/**
+ * Clearfix
+ */
+.nav-wrap-navbar:before,
+.nav-wrap-navbar:after {
+	display: table;
+	content: "";
+}
+
+.nav-wrap-navbar:after {
+	clear: both;
+}

@@ -28,7 +28,7 @@
 						?>
 					</div>
 					<div class="grid-half">
-						<p class="text-muted text-small">&copy; Copyright <?php echo date( 'Y' ); ?> <?php echo get_bloginfo( 'name' ); ?>. All Rights Reserved. <a href="http://gomakethings.com">Website by Go Make Things.</a></p>
+						<p class="text-muted text-small">&copy; Copyright <?php echo date( 'Y' ); ?> <?php echo get_bloginfo( 'name' ); ?>. All Rights Reserved. Intuit and QuickBooks are registered trademarks of Intuit Inc. <a href="http://gomakethings.com">Website by Go Make Things.</a></p>
 					</div>
 				</div>
 			</div>

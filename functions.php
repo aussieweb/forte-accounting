@@ -53,6 +53,7 @@
 			<script>
 				loadCSS( '//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:400italic,400,700' );
 			</script>
+			<meta name="google-site-verification" content="HI4TelPfWTXsl6_R4JJWjv_EAXPAYeeGgYCrs2RwYE4" />
 		<?php
 	}
 	add_action('wp_head', 'keel_initialize_theme_inline_header', 30);

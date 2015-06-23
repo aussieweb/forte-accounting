@@ -31,6 +31,7 @@
 
 		// Register our individual settings fields
 		add_settings_field( 'sidebar_main', __( 'Footer Content', 'keel' ), 'keel_settings_field_sidebar_main', 'theme_options', 'general' );
+		add_settings_field( 'footer_copyright', __( 'Footer Copyright', 'keel' ), 'keel_settings_field_footer_copyright', 'theme_options', 'general' );
 		// add_settings_field( 'sidebar_contact', __( 'Sidebar Contact', 'keel' ), 'keel_settings_field_sidebar_contact', 'theme_options', 'general' );
 		// add_settings_field( 'sidebar_landing_cta', __( 'Sidebar Landing Page CTA', 'keel' ), 'keel_settings_field_sidebar_landing_cta', 'theme_options', 'general' );
 		add_settings_field( 'sidebar_promotion', __( 'Sidebar Promotion', 'keel' ), 'keel_settings_field_sidebar_promotion', 'theme_options', 'general' );
@@ -85,6 +86,7 @@
 		$saved = (array) get_option( 'keel_theme_options' );
 		$defaults = array(
 			'sidebar_main' => '',
+			'footer_copyright' => '',
 			'sidebar_contact' => '',
 			'landing_cta' => '',
 			'sidebar_promotion' => '',
@@ -120,6 +122,22 @@
 		?>
 		<?php wp_editor( $content, 'sidebar_main', $settings ); ?>
 		<label class="description" for="sidebar_main"><?php _e( 'Add content for the foooter area.', 'keel' ); ?></label>
+		<?php
+	}
+
+	/**
+	 * Renders the footer copyright field.
+	 */
+	function keel_settings_field_footer_copyright() {
+		$options = keel_get_theme_options();
+		$content = stripslashes( $options['footer_copyright'] );
+		$settings = array(
+			'textarea_name' => 'keel_theme_options[footer_copyright]',
+			'textarea_rows' => 8
+		);
+		?>
+		<?php wp_editor( $content, 'footer_copyright', $settings ); ?>
+		<label class="description" for="footer_copyright"><?php _e( 'Add content for the footer copyright area. Use <code>{{year}}</code> to dynamically add the current year, and <code>{{name}}</code> to dynamically add your business name.', 'keel' ); ?></label>
 		<?php
 	}
 
@@ -308,6 +326,9 @@
 
 		if ( isset( $input['sidebar_main'] ) && ! empty( $input['sidebar_main'] ) )
 			$output['sidebar_main'] = wp_filter_post_kses( $input['sidebar_main'] );
+
+		if ( isset( $input['footer_copyright'] ) && ! empty( $input['footer_copyright'] ) )
+			$output['footer_copyright'] = wp_filter_post_kses( $input['footer_copyright'] );
 
 		if ( isset( $input['sidebar_contact'] ) && ! empty( $input['sidebar_contact'] ) )
 			$output['sidebar_contact'] = wp_filter_post_kses( $input['sidebar_contact'] );

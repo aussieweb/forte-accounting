@@ -53,6 +53,7 @@
 			<script>
 				loadCSS( '//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:400italic,400,700' );
 			</script>
+			<meta name="google-site-verification" content="HI4TelPfWTXsl6_R4JJWjv_EAXPAYeeGgYCrs2RwYE4" />
 		<?php
 	}
 	add_action('wp_head', 'keel_initialize_theme_inline_header', 30);
@@ -288,15 +289,15 @@
 					<p><em><?php _e( 'Your comment is being held for moderation.', 'keel' ) ?></em></p>
 				<?php endif; ?>
 
-				<header>
+				<header class="margin-bottom clearfix">
 					<figure>
 						<?php if ( $args['avatar_size'] !== 0 ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
 					</figure>
-					<h3>
+					<h3 class="no-margin-bottom no-padding-top">
 						<?php comment_author_link() ?>
 					</h3>
-					<aside>
-						<time datetime="<?php comment_date( 'Y-m-d' ); ?>" pubdate><?php comment_date('F jS, Y') ?></time>
+					<aside class="text-muted">
+						<time datetime="<?php comment_date( 'Y-m-d' ); ?>" pubdate><?php comment_date('F j, Y') ?></time>
 						<?php edit_comment_link('Edit', ' / ', ''); ?>
 					</aside>
 				</header>
@@ -376,6 +377,7 @@
 
 		$field_comment =
 			'<div>' .
+				'<label for="comment">' . __( 'Comment' ) . '</label>' .
 				'<textarea name="comment" id="comment" required></textarea>' .
 			'</div>';
 

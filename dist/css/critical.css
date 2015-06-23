@@ -1,5 +1,5 @@
 /**
- * forte-accounting v3.0.0
+ * forte-accounting v3.1.0
  * WordPress theme for Forte Accounting, by Chris Ferdinandi.
  * http://github.com/cferdinandi/forte-accounting
  * 

@@ -40,7 +40,7 @@
 	function keel_save_page_calltoaction( $post_id, $post ) {
 
 		// Verify data came from edit screen
-		if ( !wp_verify_nonce( $_POST['keel-add-page-calltoaction-process'], 'keel-add-page-calltoaction-nonce' ) ) {
+		if ( !isset( $_POST['keel-add-page-calltoaction-process'] ) || !wp_verify_nonce( $_POST['keel-add-page-calltoaction-process'], 'keel-add-page-calltoaction-nonce' ) ) {
 			return $post->ID;
 		}
 

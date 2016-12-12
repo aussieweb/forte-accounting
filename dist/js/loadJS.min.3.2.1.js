@@ -1,2 +1,2 @@
-/** forte-accounting v3.1.0, by Chris Ferdinandi | http://github.com/cferdinandi/forte-accounting | Licensed under MIT: http://gomakethings.com/mit/ */
+/*! forte-accounting v3.2.1 | (c) 2016 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/forte-accounting */
 function loadJS(e,t){"use strict";var n=window.document.getElementsByTagName("script")[0],o=window.document.createElement("script");return o.src=e,o.async=!0,n.parentNode.insertBefore(o,n),t&&"function"==typeof t&&(o.onload=t),o}

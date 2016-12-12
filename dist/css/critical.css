@@ -1,10 +1,8 @@
-/**
- * forte-accounting v3.1.0
- * WordPress theme for Forte Accounting, by Chris Ferdinandi.
+/*!
+ * forte-accounting v3.2.1: WordPress theme for Forte Accounting
+ * (c) 2016 Chris Ferdinandi
+ * MIT License
  * http://github.com/cferdinandi/forte-accounting
- * 
- * Free to use under the MIT License.
- * http://gomakethings.com/mit/
  */
 
 /**
@@ -14,38 +12,42 @@
  * @link http://necolas.github.io/normalize.css/
  */
 /**
- * Mobile screen resizing
- * @link http://dev.w3.org/csswg/css-device-adapt/
- */
+  * Mobile screen resizing
+  * @link http://dev.w3.org/csswg/css-device-adapt/
+  */
 @-webkit-viewport {
   width: device-width;
   zoom: 1.0;
 }
+
 @-moz-viewport {
   width: device-width;
   zoom: 1.0;
 }
+
 @-ms-viewport {
   width: device-width;
   zoom: 1.0;
 }
+
 @-o-viewport {
   width: device-width;
   zoom: 1.0;
 }
+
 @viewport {
   width: device-width;
   zoom: 1.0;
 }
+
 /**
  * Add box sizing to everything
  * @link http://www.paulirish.com/2012/box-sizing-border-box-ftw/
  */
+/* line 22, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_normalize.scss */
 *,
 *:before,
 *:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -55,18 +57,22 @@
  * 3. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
+/* line 35, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_normalize.scss */
 html {
   font-family: "Noto Serif", Georgia, Times, serif;
   /* 1 */
   overflow-y: scroll;
   /* 2 */
-  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+          text-size-adjust: 100%;
   /* 3 */
 }
 
 /**
  * Remove default margin.
  */
+/* line 44, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_normalize.scss */
 body {
   margin: 0;
 }
@@ -77,6 +83,7 @@ body {
  * and Firefox.
  * Correct `block` display not defined for `main` in IE 11.
  */
+/* line 54, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_normalize.scss */
 article,
 aside,
 cite,
@@ -98,6 +105,7 @@ summary {
  * 1. Correct `inline-block` display not defined in IE 8/9.
  * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
  */
+/* line 75, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_normalize.scss */
 audio,
 canvas,
 progress,
@@ -112,6 +120,7 @@ video {
  * Prevent modern browsers from displaying `audio` without controls.
  * Remove excess height in iOS 5 devices.
  */
+/* line 87, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_normalize.scss */
 audio:not([controls]) {
   display: none;
   height: 0;
@@ -120,6 +129,7 @@ audio:not([controls]) {
 /**
  * Prevent img and video elements from spilling outside of the page on smaller screens.
  */
+/* line 95, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_normalize.scss */
 img,
 video {
   max-width: 100%;
@@ -130,6 +140,7 @@ video {
  * Prevent iframe, object, and embed elements from spilling outside of the page on smaller screens.
  * height: auto causes iframes to smush, so it's omitted here.
  */
+/* line 105, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_normalize.scss */
 iframe,
 object,
 embed {
@@ -143,6 +154,7 @@ embed {
  * 1. Remove border when inside `a` element in IE 8/9/10.
  * 2. Prevents IE from making scaled images look like crap
  */
+/* line 122, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_normalize.scss */
 img {
   border: 0;
   /* 1 */
@@ -153,6 +165,7 @@ img {
 /**
  * Correct overflow not hidden in IE 9/10/11.
  */
+/* line 130, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_normalize.scss */
 svg:not(:root) {
   overflow: hidden;
 }
@@ -160,6 +173,7 @@ svg:not(:root) {
 /**
  * Address inconsistent margin.
  */
+/* line 137, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_normalize.scss */
 figure {
   margin: 0;
 }
@@ -171,6 +185,7 @@ figure {
 /**
  * Base grid styles: single column
  */
+/* line 9, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -178,15 +193,18 @@ figure {
   width: 88%;
 }
 
+/* line 16, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
 .container-large {
   max-width: 60em;
 }
 
+/* line 24, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
 .row {
   margin-left: -1.4%;
   margin-right: -1.4%;
 }
 
+/* line 29, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
 .grid-fourth, .grid-third, .grid-half, .grid-two-thirds, .grid-three-fourths, .grid-full, .grid-dynamic {
   float: left;
   padding-left: 1.4%;
@@ -197,6 +215,7 @@ figure {
 /**
  * Reverses order of grid for content choreography
  */
+/* line 46, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
 .grid-flip {
   float: right;
 }
@@ -205,102 +224,115 @@ figure {
  * Add columns to grid on bigger screens
  */
 @media (min-width: 20em) {
+  /* line 57, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
   .row-start-xsmall .grid-fourth {
     width: 25%;
   }
-
+  /* line 57, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
   .row-start-xsmall .grid-third {
     width: 33.33333%;
   }
-
+  /* line 57, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
   .row-start-xsmall .grid-half {
     width: 50%;
   }
-
+  /* line 57, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
   .row-start-xsmall .grid-two-thirds {
     width: 66.66667%;
   }
-
+  /* line 57, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
   .row-start-xsmall .grid-three-fourths {
     width: 75%;
   }
-
+  /* line 57, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
   .row-start-xsmall .grid-full {
     width: 100%;
   }
 }
+
 @media (min-width: 30em) {
+  /* line 57, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
   .row-start-small .grid-fourth {
     width: 25%;
   }
-
+  /* line 57, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
   .row-start-small .grid-third {
     width: 33.33333%;
   }
-
+  /* line 57, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
   .row-start-small .grid-half {
     width: 50%;
   }
-
+  /* line 57, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
   .row-start-small .grid-two-thirds {
     width: 66.66667%;
   }
-
+  /* line 57, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
   .row-start-small .grid-three-fourths {
     width: 75%;
   }
-
+  /* line 57, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
   .row-start-small .grid-full {
     width: 100%;
   }
 }
+
 @media (min-width: 40em) {
+  /* line 57, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
   .grid-fourth {
     width: 25%;
   }
-
+  /* line 57, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
   .grid-third {
     width: 33.33333%;
   }
-
+  /* line 57, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
   .grid-half {
     width: 50%;
   }
-
+  /* line 57, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
   .grid-two-thirds {
     width: 66.66667%;
   }
-
+  /* line 57, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
   .grid-three-fourths {
     width: 75%;
   }
-
+  /* line 57, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
   .grid-full {
     width: 100%;
   }
 }
+
 /**
  * Dynamic grid
  */
 @media (min-width: 20em) {
+  /* line 79, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
   .grid-dynamic {
     width: 50%;
   }
 }
+
 @media (min-width: 30em) {
+  /* line 79, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
   .grid-dynamic {
     width: 33.33333%;
   }
 }
+
 @media (min-width: 40em) {
+  /* line 79, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_grid.scss */
   .grid-dynamic {
     width: 25%;
   }
 }
+
 /**
  * @section Typography
  * Sets font styles for entire site
  */
+/* line 6, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 body {
   background: #ffffff;
   color: #272727;
@@ -308,12 +340,15 @@ body {
   font-size: 100%;
   line-height: 1.5;
 }
+
 @media (min-width: 40em) {
+  /* line 6, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
   body {
     line-height: 1.5625;
   }
 }
 
+/* line 18, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 p {
   margin: 0 0 1.5625em;
 }
@@ -321,6 +356,7 @@ p {
 /**
  * Hyperlink styling
  */
+/* line 27, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 a, .link-plain:hover, .link-block-styled {
   background-color: transparent;
   color: #0088cc;
@@ -331,6 +367,7 @@ a, .link-plain:hover, .link-block-styled {
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
+/* line 37, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 a:active, .link-plain:active:hover, .link-block-styled:active,
 a:hover,
 .link-plain:hover,
@@ -339,6 +376,7 @@ a:hover,
   outline: 0;
 }
 
+/* line 42, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 a:hover, .link-plain:hover, .link-block-styled:hover, .link-block:hover .link-block-styled,
 a:focus,
 .link-plain:focus:hover,
@@ -350,6 +388,7 @@ a:active,
   text-decoration: underline;
 }
 
+/* line 49, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 a img, .link-plain:hover img, .link-block-styled img {
   border: none;
   background: none;
@@ -358,6 +397,7 @@ a img, .link-plain:hover img, .link-block-styled img {
 /**
  * Creates plain links
  */
+/* line 59, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 .link-plain {
   color: #272727;
 }
@@ -365,6 +405,7 @@ a img, .link-plain:hover img, .link-block-styled img {
 /**
  * Creates block-level links
  */
+/* line 72, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 a.link-block, .link-block.link-plain:hover, .link-block.link-block-styled {
   color: #272727;
   display: block;
@@ -374,12 +415,14 @@ a.link-block, .link-block.link-plain:hover, .link-block.link-block-styled {
 /**
  * List styling
  */
+/* line 91, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 ul,
 ol {
   margin: 0 0 1.5625em 2em;
   padding: 0;
 }
 
+/* line 97, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 ul ul,
 ul ol,
 ol ol,
@@ -387,16 +430,19 @@ ol ul {
   margin-bottom: 0;
 }
 
+/* line 104, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 dl,
 dd {
   margin: 0;
   padding: 0;
 }
 
+/* line 110, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 dd {
   margin-bottom: 1.5625em;
 }
 
+/* line 114, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 dt {
   font-weight: bold;
 }
@@ -405,6 +451,7 @@ dt {
  * Removes list styling.
  * For semantic reasons, should only be used on unordered lists.
  */
+/* line 122, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 .list-unstyled {
   margin-left: 0;
   list-style: none;
@@ -413,6 +460,7 @@ dt {
 /**
  * Display lists on a single line.
  */
+/* line 131, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 .list-inline {
   list-style: none;
   margin-left: -0.5em;
@@ -420,6 +468,7 @@ dt {
   padding: 0;
 }
 
+/* line 138, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 .list-inline > li {
   display: inline;
   margin-left: 0.5em;
@@ -430,7 +479,9 @@ dt {
  * Heading styling for h1 through h6 elements.
  * Heading class lets you use one heading type for semantics, but style it as another heading type.
  */
+/* line 150, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
   font-weight: bold;
   line-height: 1.2;
   margin: 0 0 1em;
@@ -438,33 +489,42 @@ h1, h2, h3, h4, h5, h6 {
   word-wrap: break-word;
 }
 
+/* line 159, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 h1,
 .h1 {
   font-size: 1.5em;
   padding-top: .5em;
 }
+
 @media (min-width: 40em) {
+  /* line 159, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
   h1,
   .h1 {
     font-size: 1.75em;
   }
 }
 
+/* line 169, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 h2,
 .h2 {
   font-size: 1.3125em;
 }
 
+/* line 174, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 h3,
 .h3 {
+  color: #0088cc;
   font-size: 1.1875em;
+  padding-top: 0;
 }
 
+/* line 181, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 h4, h5, h6,
 .h4, .h5, .h6 {
   font-size: 1em;
 }
 
+/* line 186, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 h4,
 .h4 {
   text-transform: uppercase;
@@ -473,6 +533,7 @@ h4,
 /**
  * Lines, Quotes and Emphasis
  */
+/* line 196, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 hr {
   margin: 2em auto;
   border: 0;
@@ -480,11 +541,13 @@ hr {
   border-bottom: 0 solid #ffffff;
 }
 
+/* line 203, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 b,
 strong {
   font-weight: bold;
 }
 
+/* line 208, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 i,
 em {
   font-style: italic;
@@ -493,6 +556,7 @@ em {
 /**
  * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
  */
+/* line 216, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 abbr[title] {
   border-bottom: 1px dotted;
 }
@@ -500,6 +564,7 @@ abbr[title] {
 /**
  * Address styling not present in Safari and Chrome.
  */
+/* line 223, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 dfn {
   font-style: italic;
 }
@@ -507,6 +572,7 @@ dfn {
 /**
  * Address styling not present in IE 8/9.
  */
+/* line 230, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 mark {
   background: #ff0;
 }
@@ -514,6 +580,7 @@ mark {
 /**
  * Address inconsistent and variable font size in all browsers.
  */
+/* line 237, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 small {
   font-size: 80%;
 }
@@ -521,6 +588,7 @@ small {
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
+/* line 244, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 sub,
 sup {
   font-size: 75%;
@@ -529,10 +597,12 @@ sup {
   vertical-align: baseline;
 }
 
+/* line 252, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 sup {
   top: -0.5em;
 }
 
+/* line 256, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 sub {
   bottom: -0.25em;
 }
@@ -540,6 +610,7 @@ sub {
 /**
  * Blockquotes
  */
+/* line 265, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 blockquote {
   font-size: 1.1875em;
   font-style: italic;
@@ -547,17 +618,21 @@ blockquote {
   padding-left: 0.84211em;
   padding-right: 0.84211em;
 }
+
+/* line 272, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 blockquote cite {
   color: #808080;
   font-size: 0.84211em;
   padding-top: 1em;
 }
 
+/* line 279, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 blockquote,
 q {
   quotes: none;
 }
 
+/* line 284, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_typography.scss */
 blockquote:before,
 blockquote:after,
 q:before,
@@ -569,14 +644,13 @@ q:after {
  * @section Buttons
  * Styling for CSS buttons.
  */
+/* line 6, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_buttons.scss */
 .btn {
   background-color: #0088cc;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#0088cc), to(#005580));
   background-image: -webkit-linear-gradient(top, #0088cc 0%, #005580 100%);
   background-image: linear-gradient(to bottom, #0088cc 0%, #005580 100%);
   border: 1px solid #005580;
   border-radius: 0.25em;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 0.125em rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 0.125em rgba(0, 0, 0, 0.05);
   display: inline-block;
   font-size: 0.9375em;
@@ -588,35 +662,25 @@ q:after {
   padding: 0.5em 0.6875em;
 }
 
+/* line 22, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_buttons.scss */
 .btn,
 .btn:hover,
-a .btn:hover,
-.link-plain:hover .btn:hover,
-.link-block-styled .btn:hover,
+a .btn:hover, .link-plain:hover .btn:hover, .link-block-styled .btn:hover,
 .btn:focus,
-a .btn:focus,
-.link-plain:hover .btn:focus,
-.link-block-styled .btn:focus,
+a .btn:focus, .link-plain:hover .btn:focus, .link-block-styled .btn:focus,
 .btn:active,
-a .btn:active,
-.link-plain:hover .btn:active,
-.link-block-styled .btn:active,
+a .btn:active, .link-plain:hover .btn:active, .link-block-styled .btn:active,
 .btn.active {
   color: #ffffff;
 }
 
+/* line 33, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_buttons.scss */
 .btn:hover,
-a .btn:hover,
-.link-plain:hover .btn:hover,
-.link-block-styled .btn:hover,
+a .btn:hover, .link-plain:hover .btn:hover, .link-block-styled .btn:hover,
 .btn:focus,
-a .btn:focus,
-.link-plain:hover .btn:focus,
-.link-block-styled .btn:focus,
+a .btn:focus, .link-plain:hover .btn:focus, .link-block-styled .btn:focus,
 .btn:active,
-a .btn:active,
-.link-plain:hover .btn:active,
-.link-block-styled .btn:active,
+a .btn:active, .link-plain:hover .btn:active, .link-block-styled .btn:active,
 .btn.active {
   background-color: #005580;
   background-image: none;
@@ -624,13 +688,14 @@ a .btn:active,
   text-decoration: none;
 }
 
+/* line 62, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_buttons.scss */
 .btn:active,
 .btn.active {
-  -webkit-box-shadow: inset 0 0.15625em 0.25em rgba(0, 0, 0, 0.15), 0 1px 0.15625em rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 0.15625em 0.25em rgba(0, 0, 0, 0.15), 0 1px 0.15625em rgba(0, 0, 0, 0.05);
   outline: 0;
 }
 
+/* line 77, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_buttons.scss */
 .btn-large {
   border-radius: 0.5em;
   font-size: 1em;
@@ -638,6 +703,7 @@ a .btn:active,
   padding: 0.9375em 2em;
 }
 
+/* line 95, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_buttons.scss */
 .btn,
 button,
 html input[type="button"],
@@ -647,12 +713,13 @@ input[type="submit"] {
   text-align: center;
   vertical-align: middle;
   /**
-   * @workaround Override default button styling
-   * @affected Webkit/Firefox
-   */
+	 * @workaround Override default button styling
+	 * @affected Webkit/Firefox
+	 */
   -webkit-appearance: none;
 }
 
+/* line 112, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_buttons.scss */
 .btn:last-child,
 input.btn {
   margin-right: 0;
@@ -667,6 +734,7 @@ input.btn {
 /**
  * Hide icons by default to prevent blank spaces in unsupported browsers
  */
+/* line 11, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_svg.scss */
 .icon {
   display: inline-block;
   fill: currentColor;
@@ -678,16 +746,19 @@ input.btn {
  * Display icons when browser supports SVG.
  * Inherit height, width, and color.
  */
+/* line 22, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_svg.scss */
 .svg .icon {
   height: 1em;
   width: 1em;
 }
 
+/* line 27, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_svg.scss */
 .svg .icon-large {
   height: 2em;
   width: 2em;
 }
 
+/* line 32, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_svg.scss */
 .svg .icon-xlarge {
   height: 3em;
   width: 3em;
@@ -696,25 +767,33 @@ input.btn {
 /**
  * Colors
  */
+/* line 41, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_svg.scss */
 .icon-linkedin, .icon-facebook, .icon-google {
   background-color: #ffffff;
   border-radius: 0.125em;
 }
+
+/* line 45, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_svg.scss */
 .icon-large.icon-linkedin, .icon-large.icon-facebook, .icon-large.icon-google {
   border-radius: 0.25em;
 }
+
+/* line 49, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_svg.scss */
 .icon-xlarge.icon-linkedin, .icon-xlarge.icon-facebook, .icon-xlarge.icon-google {
   border-radius: 0.5em;
 }
 
+/* line 54, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_svg.scss */
 .icon-linkedin {
   fill: #0073b2;
 }
 
+/* line 55, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_svg.scss */
 .icon-facebook {
   fill: #3b5997;
 }
 
+/* line 56, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_svg.scss */
 .icon-google {
   fill: #d64937;
 }
@@ -722,6 +801,7 @@ input.btn {
 /**
  * Landing page icons
  */
+/* line 62, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_svg.scss */
 .svg .icon-landing {
   border: 0.25em solid #808080;
   border-radius: 50%;
@@ -730,6 +810,8 @@ input.btn {
   text-align: center;
   width: 6em;
 }
+
+/* line 71, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_svg.scss */
 .svg .icon-landing .icon {
   fill: #808080;
 }
@@ -740,6 +822,7 @@ input.btn {
 /**
  * Hide tab navigation by default
  */
+/* line 4, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_tabby.scss */
 .tabs {
   display: none;
   visibility: hidden;
@@ -749,6 +832,7 @@ input.btn {
  * Display tab navigation if javascript enabled.
  * This requires on the included js-accessibility.js-tabby script.
  */
+/* line 13, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_tabby.scss */
 .js-tabby .tabs {
   display: block;
   visibility: visible;
@@ -757,6 +841,7 @@ input.btn {
 /**
  * Force browser to show a pointer on tab navigation.
  */
+/* line 21, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_tabby.scss */
 .tabs a, .tabs .link-plain:hover, .tabs .link-block-styled,
 .tabs button {
   cursor: pointer;
@@ -765,6 +850,7 @@ input.btn {
 /**
  * Active link styling
  */
+/* line 29, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_tabby.scss */
 .tabs a.active, .tabs .active.link-plain:hover, .tabs .active.link-block-styled {
   color: #272727;
   cursor: not-allowed;
@@ -774,6 +860,7 @@ input.btn {
 /**
  * Hide tab content if javascript is enabled.
  */
+/* line 38, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_tabby.scss */
 .js-tabby .tabs-pane {
   display: none;
   visibility: hidden;
@@ -782,6 +869,7 @@ input.btn {
 /**
  * Show tab content when JS file downloads.
  */
+/* line 46, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_tabby.scss */
 .tabs-pane.active {
   display: block;
   visibility: visible;
@@ -793,6 +881,7 @@ input.btn {
 /**
  * Center all navigation elements
  */
+/* line 4, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
 .nav-wrap-navbar {
   text-align: center;
   text-shadow: none;
@@ -801,6 +890,7 @@ input.btn {
 /**
  * For text-based logo, override default link styling.
  */
+/* line 12, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
 .logo-navbar {
   color: #272727;
   display: inline-block;
@@ -810,6 +900,8 @@ input.btn {
   margin-bottom: 0.5em;
   text-decoration: none;
 }
+
+/* line 22, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
 .logo-navbar:hover {
   color: #272727;
   text-decoration: none;
@@ -818,6 +910,7 @@ input.btn {
 /**
  * Remove default list styling for navigation list
  */
+/* line 31, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
 .nav-navbar {
   font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
   list-style: none;
@@ -825,7 +918,9 @@ input.btn {
   margin-bottom: 0.5em;
   padding: 0;
 }
-.nav-navbar .icon {
+
+/* line 38, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
+.svg .nav-navbar .icon {
   height: 1.2em;
   width: 1.2em;
 }
@@ -834,12 +929,15 @@ input.btn {
  * Display navigation items as inline-block elements.
  * Add slight margin between each navigation item.
  */
+/* line 48, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
 .nav-navbar > li {
   display: inline-block;
   float: none;
   margin-left: 0.5em;
   margin-right: 0.5em;
 }
+
+/* line 54, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
 .nav-navbar > li:nth-last-child(-n+3) {
   vertical-align: middle;
 }
@@ -847,6 +945,7 @@ input.btn {
 /**
 * Active link styling
 */
+/* line 62, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
 .nav-navbar > li.current-menu-item > a, .nav-navbar > li.current-menu-item > .link-plain:hover, .nav-navbar > li.current-menu-item > .link-block-styled,
 .nav-navbar > li.current_page_parent > a,
 .nav-navbar > li.current_page_parent > .link-plain:hover,
@@ -861,6 +960,7 @@ input.btn {
  * Hide the navigation toggle menu button by default.
  * Only needed for expand-and-collapse option.
  * */
+/* line 72, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
 .nav-toggle-navbar {
   display: none;
   font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
@@ -873,51 +973,51 @@ input.btn {
  */
 @media (max-width: 60em) {
   /**
-   * Align text to the left when javascript is supported
-   */
+	 * Align text to the left when javascript is supported
+	 */
+  /* line 87, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
   .js-astro .nav-wrap-navbar.nav-collapse {
     text-align: left;
   }
-
   /**
-   * Float logo to the left and remove margin-bottom
-   */
+	 * Float logo to the left and remove margin-bottom
+	 */
+  /* line 94, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
   .js-astro .nav-collapse .logo-navbar {
     float: left;
   }
-
   /**
-   * Display navigation toggle button if javascript is supported
-   */
+	 * Display navigation toggle button if javascript is supported
+	 */
+  /* line 101, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
   .js-astro .nav-collapse .nav-toggle-navbar {
     display: block;
     visibility: visible;
     float: right;
   }
-
   /**
-   * Hide navigation items if javascript is supported.
-   * Show with `.active` class.
-   */
+	 * Hide navigation items if javascript is supported.
+	 * Show with `.active` class.
+	 */
+  /* line 111, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
   .js-astro .nav-collapse .nav-menu-navbar {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     clear: left;
     display: none;
     width: 100%;
   }
+  /* line 117, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
   .js-astro .nav-collapse .nav-menu-navbar.active {
     display: block;
   }
-
+  /* line 122, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
   .js-astro .nav-collapse .nav-navbar {
     text-align: left;
   }
-
   /**
-  * Active link styling
-  */
+	* Active link styling
+	*/
+  /* line 129, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
   .js-astro .nav-navbar > li.current-menu-item > a, .js-astro .nav-navbar > li.current-menu-item > .link-plain:hover, .js-astro .nav-navbar > li.current-menu-item > .link-block-styled,
   .js-astro .nav-navbar > li.current_page_parent > a,
   .js-astro .nav-navbar > li.current_page_parent > .link-plain:hover,
@@ -928,21 +1028,21 @@ input.btn {
     background-color: #0088cc;
     color: #ffffff;
   }
-
   /**
-   * Display navigation items as full-width, stacked blocks when javascript supported
-   */
+	 * Display navigation items as full-width, stacked blocks when javascript supported
+	 */
+  /* line 139, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
   .js-astro .nav-collapse .nav-menu-navbar li {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     border-top: 1px solid #0088cc;
     display: block;
     width: 100%;
   }
+  /* line 145, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
   .js-astro .nav-collapse .nav-menu-navbar li:nth-last-child(4) {
     border-bottom: 1px solid #0088cc;
   }
+  /* line 149, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
   .js-astro .nav-collapse .nav-menu-navbar li:nth-last-child(-n+3) {
     border-top: 0;
     display: inline-block;
@@ -950,55 +1050,62 @@ input.btn {
     margin-right: 0;
     width: auto;
   }
+  /* line 157, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
   .js-astro .nav-collapse .nav-menu-navbar li:nth-last-child(3) {
     margin-left: 0.5em;
   }
-
+  /* line 162, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
   .js-astro .nav-collapse .nav-menu-navbar a, .js-astro .nav-collapse .nav-menu-navbar .link-plain:hover, .js-astro .nav-collapse .nav-menu-navbar .link-block-styled {
     display: block;
     padding: 0.25em 0.5em;
   }
+  /* line 168, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
   .js-astro .nav-collapse .nav-menu-navbar a:hover, .js-astro .nav-collapse .nav-menu-navbar .link-plain:hover, .js-astro .nav-collapse .nav-menu-navbar .link-block-styled:hover, .js-astro .nav-collapse .nav-menu-navbar .link-block:hover .link-block-styled, .link-block:hover .js-astro .nav-collapse .nav-menu-navbar .link-block-styled {
     background-color: #0088cc;
     color: #ffffff;
     text-decoration: none;
   }
 }
+
 /**
  * Styling for bigger screens.
  */
 @media (min-width: 60em) {
   /**
-   * Align text to the left
-   */
+	 * Align text to the left
+	 */
+  /* line 186, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
   .nav-wrap-navbar {
     text-align: left;
   }
-
   /**
-   * Float logo to the left
-   */
+	 * Float logo to the left
+	 */
+  /* line 193, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
   .logo-navbar {
     float: left;
   }
-
   /**
-   * Align navigation elements to the right
-   */
+	 * Align navigation elements to the right
+	 */
+  /* line 200, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
   .nav-navbar {
     text-align: right;
     margin-bottom: 0;
   }
 }
+
 /**
  * Clearfix
  */
+/* line 210, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
 .nav-wrap-navbar:before,
 .nav-wrap-navbar:after {
   display: table;
   content: "";
 }
 
+/* line 216, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_astro-navbar.scss */
 .nav-wrap-navbar:after {
   clear: both;
 }
@@ -1007,15 +1114,18 @@ input.btn {
  * @section Backgrounds
  * Background styling.
  */
+/* line 7, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_bg.scss */
 .bg-muted {
   background-color: #e5e5e5;
 }
 
+/* line 11, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_bg.scss */
 .bg-primary {
   background-color: #0088cc;
   color: #ffffff;
 }
 
+/* line 16, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_bg.scss */
 .bg-secondary {
   background-color: #dfeff7;
 }
@@ -1027,10 +1137,12 @@ input.btn {
 /**
  * Borders
  */
+/* line 11, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .border-top {
   border-top: 1px solid #808080;
 }
 
+/* line 15, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .border-bottom {
   border-bottom: 1px solid #808080;
 }
@@ -1038,35 +1150,45 @@ input.btn {
 /**
  * Text sizes
  */
+/* line 24, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .text-small {
   font-size: 0.9375em;
 }
 
+/* line 28, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .text-medium {
   font-size: 1em;
   line-height: 1.4;
 }
+
 @media (min-width: 40em) {
+  /* line 28, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
   .text-medium {
     font-size: 1.1875em;
   }
 }
 
+/* line 37, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .text-large {
   font-size: 1.1875em;
   line-height: 1.4;
 }
+
 @media (min-width: 40em) {
+  /* line 37, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
   .text-large {
     font-size: 1.3125em;
   }
 }
 
+/* line 46, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .text-hero {
   font-size: 1.5em;
   line-height: 1.2;
 }
+
 @media (min-width: 40em) {
+  /* line 46, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
   .text-hero {
     font-size: 2em;
   }
@@ -1075,6 +1197,7 @@ input.btn {
 /**
  * Text colors
  */
+/* line 60, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .text-muted {
   color: #808080;
 }
@@ -1082,6 +1205,7 @@ input.btn {
 /**
  * Text Typefaces
  */
+/* line 69, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .font-secondary {
   font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
 }
@@ -1089,14 +1213,17 @@ input.btn {
 /**
  * Text alignment
  */
+/* line 78, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .text-center {
   text-align: center;
 }
 
+/* line 82, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .text-right {
   text-align: right;
 }
 
+/* line 86, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .text-left {
   text-align: left;
 }
@@ -1104,16 +1231,19 @@ input.btn {
 /**
  * Floats
  */
+/* line 101, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .float-left {
   float: left;
 }
 
+/* line 105, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .float-center, .svg .icon-landing {
   float: none;
   margin-left: auto;
   margin-right: auto;
 }
 
+/* line 111, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .float-right {
   float: right;
 }
@@ -1121,30 +1251,37 @@ input.btn {
 /**
  * Margins
  */
+/* line 120, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .no-margin {
   margin: 0;
 }
 
+/* line 124, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .no-margin-top {
   margin-top: 0;
 }
 
+/* line 128, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .no-margin-bottom {
   margin-bottom: 0;
 }
 
+/* line 132, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .margin-top {
   margin-top: 1.5625em;
 }
 
+/* line 136, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .margin-bottom {
   margin-bottom: 1.5625em;
 }
 
+/* line 140, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .margin-bottom-small {
   margin-bottom: 0.5em;
 }
 
+/* line 144, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .margin-bottom-large {
   margin-bottom: 2em;
 }
@@ -1152,38 +1289,47 @@ input.btn {
 /**
  * Padding
  */
+/* line 153, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .no-padding {
   padding: 0;
 }
 
+/* line 157, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .no-padding-top {
   padding-top: 0;
 }
 
+/* line 161, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .no-padding-bottom {
   padding-bottom: 0;
 }
 
+/* line 165, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .padding-top {
   padding-top: 1.5625em;
 }
 
+/* line 169, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .padding-top-small {
   padding-top: 0.5em;
 }
 
+/* line 173, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .padding-top-large {
   padding-top: 2em;
 }
 
+/* line 181, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .padding-bottom {
   padding-bottom: 1.5625em;
 }
 
+/* line 185, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .padding-bottom-small {
   padding-bottom: 0.5em;
 }
 
+/* line 189, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .padding-bottom-large {
   padding-bottom: 2em;
 }
@@ -1196,6 +1342,7 @@ input.btn {
  * @link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css
  * @link http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
  */
+/* line 207, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .screen-reader, .svg .icon-fallback-text {
   border: 0;
   clip: rect(0 0 0 0);
@@ -1204,6 +1351,7 @@ input.btn {
   overflow: hidden;
   padding: 0;
   position: absolute;
+  white-space: nowrap;
   width: 1px;
 }
 
@@ -1212,6 +1360,7 @@ input.btn {
  * @link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css
  * @link https://www.drupal.org/node/897638
  */
+/* line 224, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .screen-reader-focusable:active,
 .screen-reader-focusable:focus {
   clip: auto;
@@ -1219,6 +1368,7 @@ input.btn {
   margin: 0;
   overflow: visible;
   position: static;
+  white-space: normal;
   width: auto;
 }
 
@@ -1227,6 +1377,7 @@ input.btn {
  * @affected IE 8/9/10
  * @link http://juicystudio.com/article/screen-readers-display-none.php
  */
+/* line 240, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 [hidden], template {
   display: none;
   visibility: hidden;
@@ -1237,6 +1388,7 @@ input.btn {
  * The space content is one way to avoid an Opera bug when the `contenteditable` attribute is included anywhere else in the document.
  * @link https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/main.css
  */
+/* line 252, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .clearfix:before, .container:before,
 .row:before, .tabs:before,
 .clearfix:after,
@@ -1247,6 +1399,7 @@ input.btn {
   content: " ";
 }
 
+/* line 258, /Users/cferdinandi/Sites/forte-accounting/wordpress/wp-content/themes/forte-accounting/src/sass/components/_overrides.scss */
 .clearfix:after, .container:after,
 .row:after, .tabs:after {
   clear: both;

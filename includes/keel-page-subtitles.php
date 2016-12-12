@@ -39,7 +39,7 @@
 	function keel_save_page_subtitle( $post_id, $post ) {
 
 		// Verify data came from edit screen
-		if ( !wp_verify_nonce( $_POST['keel-add-page-subtitle-process'], 'keel-add-page-subtitle-nonce' ) ) {
+		if ( !isset( $_POST['keel-add-page-subtitle-process'] ) || !wp_verify_nonce( $_POST['keel-add-page-subtitle-process'], 'keel-add-page-subtitle-nonce' ) ) {
 			return $post->ID;
 		}
 

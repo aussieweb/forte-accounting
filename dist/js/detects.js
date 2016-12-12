@@ -1,10 +1,8 @@
-/**
- * forte-accounting v3.1.0
- * WordPress theme for Forte Accounting, by Chris Ferdinandi.
+/*!
+ * forte-accounting v3.2.1: WordPress theme for Forte Accounting
+ * (c) 2016 Chris Ferdinandi
+ * MIT License
  * http://github.com/cferdinandi/forte-accounting
- * 
- * Free to use under the MIT License.
- * http://gomakethings.com/mit/
  */
 
 /*!

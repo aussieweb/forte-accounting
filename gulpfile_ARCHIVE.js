@@ -25,7 +25,7 @@ var uglify = require('gulp-uglify');
 var karma = require('gulp-karma');
 
 // Styles
-var sass = require('gulp-sass');
+var sass = require('gulp-ruby-sass');
 var prefix = require('gulp-autoprefixer');
 var minify = require('gulp-minify-css');
 
@@ -57,10 +57,7 @@ var paths = {
 		input: 'src/svg/*',
 		output: 'dist/svg/'
 	},
-	images: {
-		input: 'src/img/*',
-		output: 'dist/img/'
-	},
+	static: 'src/static/**',
 	theme : {
 		input: 'src/style.css',
 		output: ''
@@ -87,18 +84,19 @@ var paths = {
 
 var banner = {
 	full :
-		'/*!\n' +
-		' * <%= package.name %> v<%= package.version %>: <%= package.description %>\n' +
-		' * (c) ' + new Date().getFullYear() + ' <%= package.author.name %>\n' +
-		' * MIT License\n' +
+		'/**\n' +
+		' * <%= package.name %> v<%= package.version %>\n' +
+		' * <%= package.description %>, by <%= package.author.name %>.\n' +
 		' * <%= package.repository.url %>\n' +
+		' * \n' +
+		' * Free to use under the MIT License.\n' +
+		' * http://gomakethings.com/mit/\n' +
 		' */\n\n',
 	min :
-		'/*!' +
-		' <%= package.name %> v<%= package.version %>' +
-		' | (c) ' + new Date().getFullYear() + ' <%= package.author.name %>' +
-		' | MIT License' +
+		'/**' +
+		' <%= package.name %> v<%= package.version %>, by Chris Ferdinandi' +
 		' | <%= package.repository.url %>' +
+		' | Licensed under MIT: http://gomakethings.com/mit/' +
 		' */\n',
 	theme :
 		'/**\n' +
@@ -145,10 +143,7 @@ gulp.task('build:scripts', ['clean:dist'], function() {
 gulp.task('build:styles', ['clean:dist'], function() {
 	return gulp.src(paths.styles.input)
 		.pipe(plumber())
-		.pipe(sass({
-			outputStyle: 'expanded',
-			sourceComments: true
-		}))
+		.pipe(sass({style: 'expanded', noCache: true, 'sourcemap=none': true}))
 		.pipe(flatten())
 		.pipe(prefix({
 			browsers: ['last 2 version', '> 1%'],
@@ -184,19 +179,19 @@ gulp.task('build:svgs', ['clean:dist'], function () {
 		.pipe(gulp.dest(paths.svgs.output));
 });
 
-// Copy image files into output folder
-gulp.task('build:images', ['clean:dist'], function() {
-	return gulp.src(paths.images.input)
-		.pipe(plumber())
-		.pipe(gulp.dest(paths.images.output));
-});
-
 // Create style.css with theme header
 gulp.task('build:theme', function () {
 	return gulp.src(paths.theme.input)
 		.pipe(plumber())
 		.pipe(header(banner.theme, { package : package }))
 		.pipe(gulp.dest(paths.theme.output));
+});
+
+// Copy static files into output folder
+gulp.task('copy:static', ['clean:dist'], function() {
+	return gulp.src(paths.static)
+		.pipe(plumber())
+		.pipe(gulp.dest(paths.output));
 });
 
 // Lint scripts
@@ -207,16 +202,10 @@ gulp.task('lint:scripts', function () {
 		.pipe(jshint.reporter('jshint-stylish'));
 });
 
-// Remove pre-existing content from output and test folders
+// Remove prexisting content from output and test folders
 gulp.task('clean:dist', function () {
 	del.sync([
-		paths.output
-	]);
-});
-
-// Remove pre-existing content from text folders
-gulp.task('clean:test', function () {
-	del.sync([
+		paths.output,
 		paths.test.coverage,
 		paths.test.results
 	]);
@@ -277,7 +266,7 @@ gulp.task('listen', function () {
 });
 
 // Run livereload after file change
-gulp.task('refresh', ['compile'], function () {
+gulp.task('refresh', ['compile', 'docs'], function () {
 	livereload.changed();
 });
 
@@ -290,35 +279,34 @@ gulp.task('refresh', ['compile'], function () {
 gulp.task('compile', [
 	'lint:scripts',
 	'clean:dist',
+	'copy:static',
 	'build:scripts',
-	'build:styles',
-	'build:images',
 	'build:svgs',
-	'build:theme'
+	'build:styles',
+	'build:theme',
 ]);
 
-// // Generate documentation
-// gulp.task('docs', [
-// 	'clean:docs',
-// 	'build:docs',
-// 	'copy:dist',
-// 	'copy:assets'
-// ]);
+// Generate documentation
+gulp.task('docs', [
+	'clean:docs',
+	'build:docs',
+	'copy:dist',
+	'copy:assets'
+]);
 
-// Compile files and generate docs (default)
+// Generate documentation
+gulp.task('tests', [
+	'test:scripts'
+]);
+
+// Compile files, generate docs, and run unit tests (default)
 gulp.task('default', [
 	'compile',
-	// 'docs'
+	'docs'
 ]);
 
-// Compile files and generate docs when something changes
+// Compile files, generate docs, and run unit tests when something changes
 gulp.task('watch', [
 	'listen',
 	'default'
-]);
-
-// Run unit tests
-gulp.task('test', [
-	'default',
-	'test:scripts'
 ]);

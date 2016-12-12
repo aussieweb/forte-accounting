@@ -53,7 +53,7 @@
 	function keel_save_page_set_width_checkbox( $post_id, $post ) {
 
 		// Verify data came from edit screen
-		if ( !wp_verify_nonce( $_POST['keel-set-page-width-process'], 'keel-set-page-width-nonce' ) ) {
+		if ( !isset( $_POST['keel-set-page-width-process'] ) || !wp_verify_nonce( $_POST['keel-set-page-width-process'], 'keel-set-page-width-nonce' ) ) {
 			return $post->ID;
 		}
 
